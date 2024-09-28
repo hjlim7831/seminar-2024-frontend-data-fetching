@@ -1,0 +1,16 @@
+.post-list-item-container {
+  padding-left: 20px;
+}
+
+.post-list-item-container li::marker {
+  font-weight: bold;
+}
+
+.post-list-item:hover {
+  color: grey;
+  cursor: pointer;
+}
+
+.post-list-item {
+  margin: 10px;
+}

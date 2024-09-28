@@ -1,0 +1,16 @@
+.post-detail-body {
+  padding-left: 10px;
+}
+
+.comments-container {
+  padding-left: 10px;
+  .comment {
+    margin: 10px;
+    .comment-email {
+      font-weight: bold;
+    }
+    .comment-body {
+      word-wrap: normal;
+    }
+  }
+}

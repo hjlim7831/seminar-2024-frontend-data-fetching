@@ -1,0 +1,23 @@
+.app {
+  margin: 20px;
+  display: flex;
+  border: 1px solid red;
+}
+.app-column {
+  flex: 1 0 0;
+  min-width: 0;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.vertical-divider {
+  width: 2px; /* 선 두께 증가 */
+  background-color: #ddd; /* 더 진한 색상 */
+  /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); 약간의 그림자 효과 */
+  margin: 5px 10px; /* 위아래 여백 조정 */
+}
+
+.title {
+  font-size: 30px;
+  padding: 10px;
+}

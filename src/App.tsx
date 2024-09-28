@@ -46,12 +46,12 @@ const fetchComments = async (postId: number) => {
 
 export const App = () => {
   const [posts, setPosts] = useState<PostBrief[]>([]);
-  const [postId, setPostId] = useState<number>(1);
+  const [selectedPostId, setSelectedPostId] = useState<number>(1);
   const [postDetail, setPostDetail] = useState<PostDetailType | null>(null);
   const [comments, setComments] = useState<Comment[]>([]);
 
   const handleOnClickListItem = (id: number) => {
-    setPostId(id);
+    setSelectedPostId(id);
     console.debug(id);
   };
 
@@ -72,14 +72,14 @@ export const App = () => {
 
   useEffect(() => {
     let ignore = false;
-    fetchPostDetail(postId)
+    fetchPostDetail(selectedPostId)
       .then((data) => {
         if (!ignore) setPostDetail(data);
       })
       .catch((err: unknown) => {
         console.error(err);
       });
-    fetchComments(postId)
+    fetchComments(selectedPostId)
       .then((data) => {
         if (!ignore) setComments(data);
       })
@@ -90,12 +90,16 @@ export const App = () => {
     return () => {
       ignore = true;
     };
-  }, [postId]);
+  }, [selectedPostId]);
 
   return (
     <div className="app">
       <div className="app-column">
-        <PostList posts={posts} onClick={handleOnClickListItem} />
+        <PostList
+          posts={posts}
+          onClick={handleOnClickListItem}
+          selectedPostId={selectedPostId}
+        />
       </div>
       <div className="vertical-divider" />
       <div className="app-column">
